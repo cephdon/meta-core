@@ -256,6 +256,7 @@ namespace ComponentLibraryManagerTest
 
             var project = fixture.GetProject();
             project.EnableAutoAddOns(true);
+            Assert.Contains("MGA.Addon.ComponentLibraryManagerAddOn", project.AddOnComponents.Cast<IMgaComponentEx>().Select(x => x.ComponentProgID));
             project.PerformInTransaction(delegate
             {
                 CyPhy.RootFolder rf = ISIS.GME.Dsml.CyPhyML.Classes.RootFolder.GetRootFolder(project);
